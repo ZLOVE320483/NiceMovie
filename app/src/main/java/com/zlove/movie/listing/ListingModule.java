@@ -10,6 +10,7 @@ import dagger.Provides;
 @Module
 public class ListingModule {
     @Provides
+    @ListingScope
     MoviesListingInteractor provideMovieListingInteractor(FavoritesInteractor favoritesInteractor,
                                                           TmdbWebService tmdbWebService,
                                                           SortingOptionStore sortingOptionStore) {
@@ -17,6 +18,7 @@ public class ListingModule {
     }
 
     @Provides
+    @ListingScope
     MoviesListingPresenter provideMovieListingPresenter(MoviesListingInteractor interactor) {
         return new MoviesListingPresenterImpl(interactor);
     }
